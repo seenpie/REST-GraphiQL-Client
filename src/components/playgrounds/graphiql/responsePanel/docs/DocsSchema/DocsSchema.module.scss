@@ -1,0 +1,12 @@
+.wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.fieldsWrapper {
+  flex: 1;
+  height: 100%;
+  overflow: auto;
+}
