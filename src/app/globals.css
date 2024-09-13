@@ -1,3 +1,10 @@
 @import "normalize-css";
 @import "@/assets/vars.css";
 @import "@/assets/reset.css";
+
+body {
+  background: #5a5a5a;
+  color: #fff;
+  min-height: 100vh;
+  height: 100%;
+}

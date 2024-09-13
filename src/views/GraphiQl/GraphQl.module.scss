@@ -1,0 +1,23 @@
+.graphiql {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.editor {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+.playground {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.wrapper {
+  display: flex;
+  flex: 1;
+}
