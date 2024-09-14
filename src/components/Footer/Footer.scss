@@ -1,0 +1,54 @@
+.footer {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px;
+  border-radius: 60px;
+  backdrop-filter: blur(24px);
+  border: 1px solid rgb(194 201 214 / 40%);
+  background-color: rgb(252 252 252 / 40%);
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    width: 100%;
+    height: 60px;
+    align-items: center;
+    padding: 0 30px;
+  }
+
+  &__item {
+    width: 30%;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+
+    &:hover {
+      color: rgb(51 60 77);
+    }
+  }
+}
+
+.git {
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    width: 100%;
+    height: 60px;
+    align-items: center;
+    padding: 0 30px;
+  }
+
+  &__item {
+    color: rgb(25 118 210);
+    font-size: 16px;
+    line-height: 20px;
+
+    &:hover {
+      color: rgb(51 60 77);
+    }
+  }
+}
