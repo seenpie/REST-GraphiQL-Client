@@ -5,10 +5,10 @@ import { setUrl } from "@/store";
 import { useAppDispatch } from "@/hooks/storeHooks";
 
 type QueryUrlParams = {
-  style: string;
+  className: string;
 };
 
-export function QueryUrl({ style }: QueryUrlParams) {
+export function QueryUrl({ className }: QueryUrlParams) {
   const [inputValue, setInputValue] = useState("");
   const dispatch = useAppDispatch();
 
@@ -18,5 +18,7 @@ export function QueryUrl({ style }: QueryUrlParams) {
     dispatch(setUrl(value));
   };
 
-  return <input className={style} value={inputValue} onChange={handleChange} />;
+  return (
+    <input className={className} value={inputValue} onChange={handleChange} />
+  );
 }

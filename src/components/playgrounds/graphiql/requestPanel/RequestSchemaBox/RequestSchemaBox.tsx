@@ -10,7 +10,7 @@ export function RequestSchemaBox() {
 
   return (
     <div className={classes.wrapper}>
-      <QueryUrl style={classes.input} />
+      <QueryUrl className={classes.input} />
       <Button
         callback={getSchema}
         isLoading={isSchemaLoading}

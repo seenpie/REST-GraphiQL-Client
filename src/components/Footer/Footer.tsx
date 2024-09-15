@@ -7,14 +7,14 @@ export function Footer() {
     <footer className="footer">
       <ul className="git__list">
         <li className="git__item">
-          <Image src={gitIcon} alt="git_icon" />
           <a href="https://github.com/seenpie" target="blank">
+            <Image src={gitIcon} alt="git_icon" width={16} height={16} />
             seenpie
           </a>
         </li>
         <li className="git__item">
-          <Image src={gitIcon} alt="git_icon" />
           <a href="https://github.com/xsoularisx" target="blank">
+            <Image src={gitIcon} alt="git_icon" width={16} height={16} />
             xsoularisx
           </a>
         </li>
