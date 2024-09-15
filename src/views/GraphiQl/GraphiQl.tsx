@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { RequestBox } from "@/components/playgrounds/graphiql/requestPanel";
 import { ResponseBox } from "@/components/playgrounds/graphiql/responsePanel";
 import { RequestSchemaBox } from "@/components/playgrounds/graphiql/requestPanel/RequestSchemaBox/RequestSchemaBox";
@@ -15,7 +16,9 @@ export function GraphiQl() {
         </header>
         <div className={classes.playground}>
           <section className={classes.wrapper}>
-            <RequestBox />
+            <Suspense fallback={<span>loading</span>}>
+              <RequestBox />
+            </Suspense>
           </section>
           <section className={classes.wrapper}>
             <ResponseBox />
