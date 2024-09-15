@@ -15,6 +15,7 @@ import {
   GraphQLInputObjectType
 } from "graphql";
 import { HistoryState, HistoryStateDataType } from "@/models/types";
+import classes from "./DocsFields.module.scss";
 
 type DocsFieldsProps = {
   typeData: HistoryState;
@@ -28,11 +29,11 @@ export function DocsFields({ typeData, push }: DocsFieldsProps) {
     if (!args || !args.length) return null;
 
     return (
-      <ul>
+      <ul className={classes.innerList}>
         {args.map((arg) => (
           <li key={arg.name}>
-            <span>{arg.name}: </span>
-            <span onClick={() => push(arg.type)}>
+            <span className={classes.prop}>{arg.name}: </span>
+            <span className={classes.typeLink} onClick={() => push(arg.type)}>
               {arg.type.toString() || ""}
             </span>
           </li>
@@ -41,19 +42,54 @@ export function DocsFields({ typeData, push }: DocsFieldsProps) {
     );
   };
 
+  function doForGraphQlFields(gqlFields: GraphQLField<unknown, unknown>[]) {
+    return (
+      <div>
+        <ul className={classes.list}>
+          {gqlFields.map((field) => {
+            const args = doForGraphQlArguments(field.args);
+
+            return (
+              <li key={field.name}>
+                <span className={classes.fieldLink} onClick={() => push(field)}>
+                  {field.name}
+                </span>
+                {args ? (
+                  <>
+                    <span> (</span>
+                    {args}
+                    <span>): </span>
+                  </>
+                ) : (
+                  <span>: </span>
+                )}
+                <span
+                  className={classes.typeLink}
+                  onClick={() => push(field.type)}
+                >
+                  {field.type.toString()}
+                </span>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    );
+  }
+
   function doForScalarType(gqlType: GraphQLScalarType) {
     const fields = Object.values([gqlType.toConfig()]);
 
     return (
       <>
         <div>
-          <span>{name}</span>
+          <span className={classes.title}>{name}</span>
         </div>
         <div>
-          <ul>
+          <ul className={classes.list}>
             {fields.map((field) => (
               <li key={field.name}>
-                <span>description: </span>
+                <div>description: </div>
                 <span>{field.description}</span>
               </li>
             ))}
@@ -68,7 +104,7 @@ export function DocsFields({ typeData, push }: DocsFieldsProps) {
     return (
       <>
         <div>
-          <span onClick={() => push(field.type)}>
+          <span className={classes.typeLink} onClick={() => push(field.type)}>
             Type: {field.type.toString()}
           </span>
         </div>
@@ -87,33 +123,9 @@ export function DocsFields({ typeData, push }: DocsFieldsProps) {
     return (
       <>
         <div>
-          <span>{name}</span>
+          <span className={classes.title}>{name}</span>
         </div>
-        <div>
-          <ul>
-            {fields.map((field) => {
-              const args = doForGraphQlArguments(field.args);
-
-              return (
-                <li key={field.name}>
-                  <span onClick={() => push(field)}>{field.name}</span>
-                  {args ? (
-                    <>
-                      <span> (</span>
-                      {args}
-                      <span>): </span>
-                    </>
-                  ) : (
-                    <span>: </span>
-                  )}
-                  <span onClick={() => push(field.type)}>
-                    {field.type.toString()}
-                  </span>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        {doForGraphQlFields(fields)}
       </>
     );
   }
@@ -127,7 +139,7 @@ export function DocsFields({ typeData, push }: DocsFieldsProps) {
         </div>
         <div>
           <span>values</span>
-          <ul>
+          <ul className={classes.outerList}>
             {fields.map((field) => (
               <li key={field.name}>
                 <span>{field.name}</span>
@@ -148,31 +160,7 @@ export function DocsFields({ typeData, push }: DocsFieldsProps) {
           <span>{name}</span>
           <span>description: {gqlType.description}</span>
         </div>
-        <div>
-          <ul>
-            {fields.map((field) => {
-              const args = doForGraphQlArguments(field.args);
-
-              return (
-                <li key={field.name}>
-                  <span onClick={() => push(field)}>{field.name}</span>
-                  {args ? (
-                    <>
-                      <span> (</span>
-                      {args}
-                      <span>): </span>
-                    </>
-                  ) : (
-                    <span>: </span>
-                  )}
-                  <span onClick={() => push(field.type)}>
-                    {field.type.toString()}
-                  </span>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        {doForGraphQlFields(fields)}
       </>
     );
   }
@@ -186,11 +174,14 @@ export function DocsFields({ typeData, push }: DocsFieldsProps) {
           <span>{name}</span>
         </div>
         <div>
-          <ul>
+          <ul className={classes.list}>
             {fields.map((field) => (
               <li key={field.name}>
                 <span>{field.name}</span>
-                <span onClick={() => push(field.type)}>
+                <span
+                  className={classes.typeLink}
+                  onClick={() => push(field.type)}
+                >
                   {field.type.toString()}
                 </span>
               </li>

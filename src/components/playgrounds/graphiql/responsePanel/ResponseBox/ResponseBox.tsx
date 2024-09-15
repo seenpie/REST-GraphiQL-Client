@@ -33,7 +33,7 @@ export function ResponseBox() {
 
   return (
     <div className={classes.wrapper}>
-      <header>
+      <header className={classes.buttons}>
         <Button
           label="result"
           isLoading={false}

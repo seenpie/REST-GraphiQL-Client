@@ -1,0 +1,13 @@
+@mixin button {
+  background-color: rgb(25 118 210 / 3%);
+  padding: 5px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  cursor: pointer;
+  line-height: 20px;
+
+  &[disabled] {
+    background-color: #eee;
+    border: none;
+  }
+}

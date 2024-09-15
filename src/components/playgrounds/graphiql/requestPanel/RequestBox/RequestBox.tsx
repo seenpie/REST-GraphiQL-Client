@@ -27,7 +27,7 @@ export function RequestBox() {
         <div className={classes.requestEditor}>
           <header className={classes.requestTool}>
             <span>tools</span>
-            <div>
+            <div className={classes.buttons}>
               <Button
                 label="fix"
                 isLoading={false}

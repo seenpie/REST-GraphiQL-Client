@@ -12,15 +12,17 @@ export function DocsSchema() {
       <div className={classes.wrapper}>
         <span>{title}</span>
         {query && (
-          <span onClick={() => push(query)}>{GraphQlStartTypes.QUERY}</span>
+          <span className={classes.link} onClick={() => push(query)}>
+            {GraphQlStartTypes.QUERY}
+          </span>
         )}
         {mutation && (
-          <span onClick={() => push(mutation)}>
+          <span className={classes.link} onClick={() => push(mutation)}>
             {GraphQlStartTypes.MUTATION}
           </span>
         )}
         {subscription && (
-          <span onClick={() => push(subscription)}>
+          <span className={classes.link} onClick={() => push(subscription)}>
             {GraphQlStartTypes.SUBSCRIPTION}
           </span>
         )}
@@ -30,7 +32,9 @@ export function DocsSchema() {
 
   return (
     <div className={classes.wrapper}>
-      <span onClick={pop}>back</span>
+      <button className={classes.backButton} type="button" onClick={pop}>
+        back
+      </button>
       <section className={classes.fieldsWrapper}>
         <DocsFields typeData={data} push={push} />
       </section>

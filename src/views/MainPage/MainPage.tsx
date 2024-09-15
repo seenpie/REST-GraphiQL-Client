@@ -1,11 +1,11 @@
 import { Main } from "@/components/Main/Main";
 import { Header } from "@/components/Header/Header";
-import "./MainPage.scss";
 import { Footer } from "@/components/Footer/Footer";
+import classes from "./MainPage.module.scss";
 
 export default function MainPage() {
   return (
-    <div className="container">
+    <div className={classes.wrapper}>
       <Header />
       <Main />
       <Footer />

@@ -1,3 +1,5 @@
+"use client";
+
 import "./Header.scss";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -17,6 +19,7 @@ export function Header() {
   function toggleLanguage() {
     setIsRussian(!isRussian);
   }
+
   return (
     <header className="header">
       <div className="header__list">
@@ -25,6 +28,7 @@ export function Header() {
           type="button"
           className="header__item header__button"
           onClick={toggleLanguage}
+          disabled={Boolean(true)}
         >
           {isRussian ? "en" : "ru"}
         </button>
@@ -34,6 +38,7 @@ export function Header() {
           type="button"
           className="header__item header__button"
           onClick={goSignInPage}
+          disabled={Boolean(true)}
         >
           {isRussian ? "войти" : "sign in"}
         </button>
@@ -41,6 +46,7 @@ export function Header() {
           type="button"
           className="header__item header__button header__button-registration"
           onClick={goSignUpPage}
+          disabled={Boolean(true)}
         >
           {isRussian ? "зарегистрироваться" : "registration"}
         </button>

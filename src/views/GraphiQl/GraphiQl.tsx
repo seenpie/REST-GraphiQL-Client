@@ -1,12 +1,14 @@
 import { RequestBox } from "@/components/playgrounds/graphiql/requestPanel";
 import { ResponseBox } from "@/components/playgrounds/graphiql/responsePanel";
 import { RequestSchemaBox } from "@/components/playgrounds/graphiql/requestPanel/RequestSchemaBox/RequestSchemaBox";
-import classes from "./GraphQl.module.scss";
+import { Header } from "@/components/Header/Header";
+import { Footer } from "@/components/Footer/Footer";
+import classes from "./GraphiQl.module.scss";
 
 export function GraphiQl() {
   return (
     <div className={classes.graphiql}>
-      <h1>this graphiQl editor</h1>
+      <Header />
       <div className={classes.editor}>
         <header>
           <RequestSchemaBox />
@@ -20,6 +22,7 @@ export function GraphiQl() {
           </section>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

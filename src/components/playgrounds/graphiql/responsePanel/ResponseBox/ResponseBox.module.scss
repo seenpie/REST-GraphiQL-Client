@@ -3,9 +3,15 @@
   flex-direction: column;
   flex: 1;
   overflow: hidden;
+  gap: 4px;
 }
 
 .editor {
   height: 100%;
   overflow: auto;
+}
+
+.buttons {
+  display: flex;
+  gap: 4px;
 }

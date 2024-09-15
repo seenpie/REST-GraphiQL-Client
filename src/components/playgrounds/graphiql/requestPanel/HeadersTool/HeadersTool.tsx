@@ -31,7 +31,7 @@ export function HeadersTool() {
     <>
       <header className={classes.header}>
         <span>headers</span>
-        <div>
+        <div className={classes.buttons}>
           <button type="button" onClick={addTab}>
             add tab
           </button>

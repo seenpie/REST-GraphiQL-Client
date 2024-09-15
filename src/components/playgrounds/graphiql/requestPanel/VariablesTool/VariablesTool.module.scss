@@ -2,6 +2,11 @@
   height: 100%;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
 .editor {
   height: 200px;
   overflow: auto;

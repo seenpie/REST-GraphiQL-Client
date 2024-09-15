@@ -3,13 +3,14 @@
 import { QueryUrl } from "@/components/playgrounds/graphiql/requestPanel";
 import { Button } from "@/components/playgrounds/graphiql/shared/Button/Button";
 import { useGraphQlSchema } from "@/hooks/useGraphQlSchema";
+import classes from "./RequestSchemaBox.module.scss";
 
 export function RequestSchemaBox() {
   const { getSchema, isSchemaLoading, url } = useGraphQlSchema();
 
   return (
-    <div>
-      <QueryUrl />
+    <div className={classes.wrapper}>
+      <QueryUrl style={classes.input} />
       <Button
         callback={getSchema}
         isLoading={isSchemaLoading}
