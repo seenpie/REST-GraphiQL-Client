@@ -2,7 +2,7 @@ import { renderWithProviders } from "@/__tests__/setup/testStore";
 import { QueryUrl } from "@/components/playgrounds/graphiql/requestPanel";
 import { fireEvent, screen } from "@testing-library/react";
 import { setUrl } from "@/store";
-import { useAppDispatch } from "@/hooks/storeHooks"; // assuming setUrl action is imported
+import { useAppDispatch } from "@/hooks/storeHooks";
 
 vi.mock("@/hooks/storeHooks");
 
@@ -12,7 +12,7 @@ describe("Query Url", () => {
   });
 
   it("Should render on the page", () => {
-    renderWithProviders(<QueryUrl />);
+    renderWithProviders(<QueryUrl className="" />);
     expect(screen.queryByRole("textbox")).toBeInTheDocument();
   });
 
@@ -22,7 +22,7 @@ describe("Query Url", () => {
 
     const value = "123";
 
-    renderWithProviders(<QueryUrl />);
+    renderWithProviders(<QueryUrl className="" />);
 
     const input = screen.getByRole("textbox");
 
