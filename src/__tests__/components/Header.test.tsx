@@ -29,22 +29,46 @@ describe("Header", () => {
     expect(screen.getByText("registration")).toBeInTheDocument();
   });
 
-  it("does not navigate when buttons are disabled", () => {
+  it("toggles the language on button click", () => {
     render(<Header />);
 
-    const signInButton = screen.getByText("sign in");
-    const signUpButton = screen.getByText("registration");
+    const languageButton = screen.getByRole("button", { name: "ru" });
+    fireEvent.click(languageButton);
 
-    fireEvent.click(signInButton);
-    fireEvent.click(signUpButton);
+    expect(languageButton).toHaveTextContent("en");
 
-    expect(pushMock).not.toHaveBeenCalled();
+    fireEvent.click(languageButton);
+
+    expect(languageButton).toHaveTextContent("ru");
   });
 
-  it("buttons are disabled", () => {
+  it("navigates to sign in page on button click", () => {
     render(<Header />);
 
-    expect(screen.getByText("sign in")).toBeDisabled();
-    expect(screen.getByText("registration")).toBeDisabled();
+    const signInButton = screen.getByRole("button", { name: "sign in" });
+    fireEvent.click(signInButton);
+
+    expect(pushMock).toHaveBeenCalledWith("/signin");
+  });
+
+  it("navigates to sign up page on button click", () => {
+    render(<Header />);
+
+    const signUpButton = screen.getByRole("button", { name: "registration" });
+    fireEvent.click(signUpButton);
+
+    expect(pushMock).toHaveBeenCalledWith("/signup");
+  });
+
+  it("renders Russian text when language is toggled", () => {
+    render(<Header />);
+
+    const languageButton = screen.getByRole("button", { name: "ru" });
+    fireEvent.click(languageButton);
+
+    expect(screen.getByRole("button", { name: "войти" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "зарегистрироваться" })
+    ).toBeInTheDocument();
   });
 });
