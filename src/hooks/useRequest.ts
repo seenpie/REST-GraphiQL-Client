@@ -1,3 +1,5 @@
+"use client";
+
 import { useCallback, useEffect } from "react";
 import { useAppDispatch } from "@/hooks/storeHooks";
 import {
