@@ -28,6 +28,4 @@ export const responseSlice = createSlice({
   }
 });
 
-// export const { setResponse, setResponseError, setResponseLoading } =
-//   responseSlice.actions;
 export const responseReducer = responseSlice.reducer;

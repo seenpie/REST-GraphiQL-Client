@@ -1,12 +1,14 @@
 import { screen, fireEvent } from "@testing-library/react";
 import { DocsSchema } from "@/components/playgrounds/graphiql/responsePanel/docs/DocsSchema/DocsSchema";
-import { useDocsSchema } from "@/hooks/useDocsSchema";
+import { useDocsSchema } from "@/components/playgrounds/graphiql/responsePanel/docs/DocsSchema/DocsSchema.hooks";
 import { GraphQlStartTypes } from "@/models/enums";
-import { renderWithProviders } from "@/__tests__/setup/testStore";
+import { renderWithProviders } from "@/test/setup/testStore";
 import { GraphQLObjectType, GraphQLScalarType } from "graphql";
 import { GraphQLField } from "graphql/type";
 
-vi.mock("@/hooks/useDocsSchema");
+vi.mock(
+  "@/components/playgrounds/graphiql/responsePanel/docs/DocsSchema/DocsSchema.hooks"
+);
 
 describe("DocsSchema", () => {
   const mockPush = vi.fn();

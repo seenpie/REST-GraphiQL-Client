@@ -1,0 +1,28 @@
+.footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  border-radius: var(--main-border-radius);
+  backdrop-filter: blur(24px);
+  border: 1px solid #000;
+}
+
+.list {
+  display: flex;
+  text-align: center;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.item {
+  text-align: center;
+
+  > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+}

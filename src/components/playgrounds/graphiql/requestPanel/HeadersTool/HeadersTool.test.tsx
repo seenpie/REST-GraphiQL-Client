@@ -1,5 +1,5 @@
 import { HeadersTool } from "@/components/playgrounds/graphiql/requestPanel/HeadersTool/HeadersTool";
-import { renderWithProviders } from "@/__tests__/setup/testStore";
+import { renderWithProviders } from "@/test/setup/testStore";
 import { fireEvent, screen } from "@testing-library/react";
 
 const mockedUseAppDispatch = vi.fn();
@@ -66,11 +66,6 @@ describe("HeadersTool", () => {
     const removeTabButton = screen.getByText("del");
 
     fireEvent.click(removeTabButton);
-
-    // Проверяем, что dispatch был вызван с removeHeaders
-    // expect(dispatchMock).toHaveBeenCalledWith(
-    //   mockedRemoveHeaders(expect.any(Array))
-    // );
     expect(screen.queryByRole("textbox")).not.toBeInTheDocument();
   });
 });

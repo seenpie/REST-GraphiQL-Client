@@ -1,5 +1,5 @@
 import { renderHook, act } from "@testing-library/react";
-import { useRequest } from "@/hooks/useRequest";
+import { useRequest } from "@/components/playgrounds/graphiql/requestPanel/RequestBox/RequestBox.hooks";
 import { useAppDispatch } from "@/hooks/storeHooks";
 import {
   selectDocs,
@@ -12,7 +12,6 @@ import { useSelector } from "react-redux";
 import { useGraphQlRouter } from "@/hooks/useGraphQlRouter";
 import { prettify } from "@/utils/prettify";
 
-// Мокаем необходимые функции
 vi.mock("react-redux", () => ({
   useSelector: vi.fn()
 }));
@@ -143,7 +142,6 @@ describe("useRequest", () => {
       await result.current.fixQuery();
     });
 
-    // Проверяем, что запрос был "приукрашен" и обновлен
     expect(prettify).toHaveBeenCalledWith("query {}");
     expect(dispatchMock).toHaveBeenCalledWith(setQuery("query {}"));
   });

@@ -1,7 +1,7 @@
 "use client";
 
-import "./Main.scss";
 import { useRouter } from "next/navigation";
+import classes from "./Main.module.scss";
 
 export function Main() {
   const router = useRouter();
@@ -10,31 +10,16 @@ export function Main() {
     router.push("/graphiql");
   }
 
-  function goRestfullPage() {
-    router.push("/restfull");
-  }
-
   return (
-    <div className="main">
-      <div className="main__list">
-        <section className="section">
+    <div className={classes.main}>
+      <div className={classes.list}>
+        <section className={classes.section}>
           <button
             type="button"
             className="main__item main__button"
             onClick={goGraphiQLPage}
           >
             go GraphiQL
-          </button>
-        </section>
-
-        <section className="section">
-          <button
-            type="button"
-            className="main__item main__button"
-            onClick={goRestfullPage}
-            disabled={Boolean(true)}
-          >
-            go RESTFull
           </button>
         </section>
       </div>

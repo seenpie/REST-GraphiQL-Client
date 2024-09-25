@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
 import { MetadataEditor } from "@/components/playgrounds/graphiql/shared/codemirror";
 import { describe, it, expect } from "vitest";
-import { renderWithProviders } from "@/__tests__/setup/testStore";
+import { renderWithProviders } from "@/test/setup/testStore";
 
 describe("MetadataEditor", () => {
   it("renders the MetadataEditor component", () => {

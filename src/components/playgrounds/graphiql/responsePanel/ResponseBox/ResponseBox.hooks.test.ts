@@ -1,5 +1,5 @@
 import { renderHook, act } from "@testing-library/react";
-import { useResponse } from "@/hooks/useResponse";
+import { useResponse } from "@/components/playgrounds/graphiql/responsePanel/ResponseBox/ResponseBox.hooks";
 import { useSelector } from "react-redux";
 import { selectDocs } from "@/store";
 

@@ -9,7 +9,7 @@ import {
   GraphQLNonNull,
   GraphQLList
 } from "graphql";
-import { renderWithProviders } from "@/__tests__/setup/testStore";
+import { renderWithProviders } from "@/test/setup/testStore";
 
 const mockPush = vi.fn();
 

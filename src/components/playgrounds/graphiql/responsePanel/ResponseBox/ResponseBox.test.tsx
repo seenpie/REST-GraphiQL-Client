@@ -1,12 +1,15 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { ResponseBox } from "@/components/playgrounds/graphiql/responsePanel/ResponseBox/ResponseBox";
-import { useResponse } from "@/hooks/useResponse";
-import { renderWithProviders } from "@/__tests__/setup/testStore";
+import { useResponse } from "@/components/playgrounds/graphiql/responsePanel/ResponseBox/ResponseBox.hooks";
+import { renderWithProviders } from "@/test/setup/testStore";
 import { GraphQLSchema } from "graphql/type";
 
-vi.mock("@/hooks/useResponse", () => ({
-  useResponse: vi.fn()
-}));
+vi.mock(
+  "@/components/playgrounds/graphiql/responsePanel/ResponseBox/ResponseBox.hooks",
+  () => ({
+    useResponse: vi.fn()
+  })
+);
 
 vi.mock("@/components/playgrounds/graphiql/shared/codemirror", () => ({
   ResponseEditor: ({ value }: { value: string }) => (

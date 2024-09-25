@@ -1,5 +1,5 @@
 import { renderHook, act } from "@testing-library/react";
-import { useGraphQlSchema } from "@/hooks/useGraphQlSchema";
+import { useRequestSchema } from "@/components/playgrounds/graphiql/requestPanel/RequestSchemaBox/RequestSchemaBox.hooks";
 import {
   setDocs,
   setDocsError,
@@ -43,7 +43,7 @@ describe("useGraphQlSchema", () => {
     vi.mocked(useAppDispatch).mockReturnValue(dispatchMock);
 
     vi.mocked(useAppSelector).mockReturnValue({
-      url: "http://test-url.com"
+      url: "https://test-url.com"
     });
 
     vi.mocked(useGetSchemaMutation).mockReturnValue([
@@ -57,17 +57,17 @@ describe("useGraphQlSchema", () => {
   });
 
   it("should trigger schema fetch and set parameter", () => {
-    const { result } = renderHook(() => useGraphQlSchema());
+    const { result } = renderHook(() => useRequestSchema());
 
     act(() => {
       result.current.getSchema();
     });
 
-    expect(triggerMock).toHaveBeenCalledWith("http://test-url.com");
+    expect(triggerMock).toHaveBeenCalledWith("https://test-url.com");
 
     expect(setParamMock).toHaveBeenCalledWith(
       "endpoint",
-      "http://test-url.com"
+      "https://test-url.com"
     );
   });
 
@@ -77,7 +77,7 @@ describe("useGraphQlSchema", () => {
       { data: null, error: null, isLoading: true, reset: () => {} }
     ]);
 
-    renderHook(() => useGraphQlSchema());
+    renderHook(() => useRequestSchema());
 
     expect(dispatchMock).toHaveBeenCalledWith(setIsLoading(true));
   });
@@ -92,9 +92,8 @@ describe("useGraphQlSchema", () => {
       { data: mockSchema, error: null, isLoading: false, reset: () => {} }
     ]);
 
-    renderHook(() => useGraphQlSchema());
+    renderHook(() => useRequestSchema());
 
-    // Проверяем, что schema построена и установлена
     expect(dispatchMock).toHaveBeenCalledWith(
       setDocs(builtSchema as GraphQLSchema)
     );

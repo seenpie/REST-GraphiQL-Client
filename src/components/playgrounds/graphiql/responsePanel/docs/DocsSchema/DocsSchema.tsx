@@ -1,4 +1,4 @@
-import { useDocsSchema } from "@/hooks/useDocsSchema";
+import { useDocsSchema } from "@/components/playgrounds/graphiql/responsePanel/docs/DocsSchema/DocsSchema.hooks";
 import { DocsFields } from "@/components/playgrounds/graphiql/responsePanel/docs/DocsFields/DocsFields";
 import { GraphQlStartTypes } from "@/models/enums";
 import classes from "./DocsSchema.module.scss";

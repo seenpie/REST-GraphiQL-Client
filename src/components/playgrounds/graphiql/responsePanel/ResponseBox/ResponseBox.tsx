@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/playgrounds/graphiql/shared/Button/Button";
-import { useResponse } from "@/hooks/useResponse";
+import { useResponse } from "@/components/playgrounds/graphiql/responsePanel/ResponseBox/ResponseBox.hooks";
 import { ResponseEditor } from "@/components/playgrounds/graphiql/shared/codemirror";
 import { DocsSchema } from "@/components/playgrounds/graphiql/responsePanel/docs/DocsSchema/DocsSchema";
 import classes from "./ResponseBox.module.scss";

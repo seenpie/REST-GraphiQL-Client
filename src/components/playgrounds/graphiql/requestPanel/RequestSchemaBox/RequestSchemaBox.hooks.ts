@@ -10,7 +10,7 @@ import { buildClientSchema } from "graphql";
 import { useAppDispatch, useAppSelector } from "@/hooks/storeHooks";
 import { useGraphQlRouter } from "@/hooks/useGraphQlRouter";
 
-export function useGraphQlSchema() {
+export function useRequestSchema() {
   const tabState = useAppSelector(selectTab);
   const dispatch = useAppDispatch();
   const [trigger, { data, error, isLoading }] = useGetSchemaMutation();

@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/Providers/Providers";
 import { Suspense } from "react";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Roboto({ subsets: ["latin", "cyrillic"], weight: "500" });
 
 export const metadata: Metadata = {
-  title: "react-GraphiQl-client",
-  description: "react-GraphiQl-client rs_school react202434"
+  title: "seenGraphQl",
+  description: "seenGraphQl 2024",
+  icons: {
+    icon: "/favicon.svg"
+  }
 };
 
 export default function RootLayout({

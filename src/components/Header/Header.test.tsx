@@ -23,23 +23,9 @@ describe("Header", () => {
   it("renders with initial English language state", () => {
     render(<Header />);
 
-    expect(screen.getByText("client")).toBeInTheDocument();
-    expect(screen.getByText("ru")).toBeInTheDocument();
+    expect(screen.getByText("seenGraphQl")).toBeInTheDocument();
     expect(screen.getByText("sign in")).toBeInTheDocument();
-    expect(screen.getByText("registration")).toBeInTheDocument();
-  });
-
-  it("toggles the language on button click", () => {
-    render(<Header />);
-
-    const languageButton = screen.getByRole("button", { name: "ru" });
-    fireEvent.click(languageButton);
-
-    expect(languageButton).toHaveTextContent("en");
-
-    fireEvent.click(languageButton);
-
-    expect(languageButton).toHaveTextContent("ru");
+    expect(screen.getByText("sign up")).toBeInTheDocument();
   });
 
   it("navigates to sign in page on button click", () => {
@@ -54,21 +40,9 @@ describe("Header", () => {
   it("navigates to sign up page on button click", () => {
     render(<Header />);
 
-    const signUpButton = screen.getByRole("button", { name: "registration" });
+    const signUpButton = screen.getByRole("button", { name: "sign up" });
     fireEvent.click(signUpButton);
 
     expect(pushMock).toHaveBeenCalledWith("/signup");
-  });
-
-  it("renders Russian text when language is toggled", () => {
-    render(<Header />);
-
-    const languageButton = screen.getByRole("button", { name: "ru" });
-    fireEvent.click(languageButton);
-
-    expect(screen.getByRole("button", { name: "войти" })).toBeInTheDocument();
-    expect(
-      screen.getByRole("button", { name: "зарегистрироваться" })
-    ).toBeInTheDocument();
   });
 });

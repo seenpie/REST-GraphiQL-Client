@@ -1,11 +1,14 @@
 import { screen, fireEvent } from "@testing-library/react";
 import { RequestBox } from "@/components/playgrounds/graphiql/requestPanel/RequestBox/RequestBox";
-import { useRequest } from "@/hooks/useRequest";
-import { renderWithProviders } from "@/__tests__/setup/testStore";
+import { useRequest } from "@/components/playgrounds/graphiql/requestPanel/RequestBox/RequestBox.hooks";
+import { renderWithProviders } from "@/test/setup/testStore";
 
-vi.mock("@/hooks/useRequest", () => ({
-  useRequest: vi.fn()
-}));
+vi.mock(
+  "@/components/playgrounds/graphiql/requestPanel/RequestBox/RequestBox.hooks",
+  () => ({
+    useRequest: vi.fn()
+  })
+);
 
 vi.mock("@/components/playgrounds/graphiql/shared/codemirror", () => ({
   RequestEditor: ({

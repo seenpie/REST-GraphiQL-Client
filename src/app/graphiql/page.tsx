@@ -1,5 +1,5 @@
-import { GraphiQl } from "@/views/GraphiQl/GraphiQl";
+import { GraphiQlPage } from "@/views/GraphiQlPage/GraphiQlPage";
 
 export default function GraphQlPage() {
-  return <GraphiQl />;
+  return <GraphiQlPage />;
 }

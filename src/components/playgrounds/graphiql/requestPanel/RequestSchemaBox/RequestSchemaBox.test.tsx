@@ -1,9 +1,11 @@
 import { screen, fireEvent } from "@testing-library/react";
 import { RequestSchemaBox } from "@/components/playgrounds/graphiql/requestPanel/RequestSchemaBox/RequestSchemaBox";
-import { useGraphQlSchema } from "@/hooks/useGraphQlSchema";
-import { renderWithProviders } from "@/__tests__/setup/testStore";
+import { useRequestSchema } from "@/components/playgrounds/graphiql/requestPanel/RequestSchemaBox/RequestSchemaBox.hooks";
+import { renderWithProviders } from "@/test/setup/testStore";
 
-vi.mock("@/hooks/useGraphQlSchema");
+vi.mock(
+  "@/components/playgrounds/graphiql/requestPanel/RequestSchemaBox/RequestSchemaBox.hooks"
+);
 
 describe("RequestSchemaBox", () => {
   afterEach(() => {
@@ -11,7 +13,7 @@ describe("RequestSchemaBox", () => {
   });
 
   it("should render QueryUrl and Button components", () => {
-    vi.mocked(useGraphQlSchema).mockReturnValue({
+    vi.mocked(useRequestSchema).mockReturnValue({
       getSchema: vi.fn(),
       isSchemaLoading: false,
       url: "123",
@@ -27,7 +29,7 @@ describe("RequestSchemaBox", () => {
   });
 
   it("should disable the button when url is not provided", () => {
-    vi.mocked(useGraphQlSchema).mockReturnValue({
+    vi.mocked(useRequestSchema).mockReturnValue({
       getSchema: vi.fn(),
       isSchemaLoading: false,
       url: "",
@@ -41,7 +43,7 @@ describe("RequestSchemaBox", () => {
   });
 
   it("should enable the button when url is provided", () => {
-    vi.mocked(useGraphQlSchema).mockReturnValue({
+    vi.mocked(useRequestSchema).mockReturnValue({
       getSchema: vi.fn(),
       isSchemaLoading: false,
       url: "123",
@@ -56,7 +58,7 @@ describe("RequestSchemaBox", () => {
 
   it("should call getSchema when button is clicked", () => {
     const mockFn = vi.fn();
-    vi.mocked(useGraphQlSchema).mockReturnValue({
+    vi.mocked(useRequestSchema).mockReturnValue({
       getSchema: mockFn,
       isSchemaLoading: false,
       url: "123",
@@ -73,7 +75,7 @@ describe("RequestSchemaBox", () => {
   });
 
   it("should button disable when isSchemaLoading is true", () => {
-    vi.mocked(useGraphQlSchema).mockReturnValue({
+    vi.mocked(useRequestSchema).mockReturnValue({
       getSchema: vi.fn(),
       isSchemaLoading: true,
       url: "123",

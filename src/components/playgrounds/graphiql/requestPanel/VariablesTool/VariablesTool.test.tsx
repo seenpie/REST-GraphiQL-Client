@@ -3,7 +3,7 @@ import { VariablesTool } from "@/components/playgrounds/graphiql/requestPanel/Va
 import { useAppDispatch } from "@/hooks/storeHooks";
 import { setVariables } from "@/store";
 import { vi } from "vitest";
-import { renderWithProviders } from "@/__tests__/setup/testStore";
+import { renderWithProviders } from "@/test/setup/testStore";
 
 vi.mock("@/hooks/storeHooks");
 
@@ -21,7 +21,6 @@ describe("VariablesTool", () => {
   const mockDispatch = vi.fn();
 
   beforeEach(() => {
-    // Мокаем dispatch перед каждым тестом
     vi.mocked(useAppDispatch).mockReturnValue(mockDispatch);
     vi.clearAllMocks();
   });

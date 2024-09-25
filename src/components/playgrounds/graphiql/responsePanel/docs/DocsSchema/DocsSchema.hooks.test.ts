@@ -1,4 +1,4 @@
-import { useDocsSchema } from "@/hooks/useDocsSchema";
+import { useDocsSchema } from "@/components/playgrounds/graphiql/responsePanel/docs/DocsSchema/DocsSchema.hooks";
 import { useAppSelector } from "@/hooks/storeHooks";
 import { expect } from "vitest";
 import { renderHook, act } from "@testing-library/react";
@@ -6,7 +6,7 @@ import { GraphQLScalarType } from "graphql";
 
 vitest.mock("@/hooks/storeHooks");
 
-describe("useDocsSchema hook", () => {
+describe("docsSchemaHooks hook", () => {
   const mockSchema = {
     getQueryType: vitest
       .fn()

@@ -4,9 +4,9 @@ import { ResponseBox } from "@/components/playgrounds/graphiql/responsePanel";
 import { RequestSchemaBox } from "@/components/playgrounds/graphiql/requestPanel/RequestSchemaBox/RequestSchemaBox";
 import { Header } from "@/components/Header/Header";
 import { Footer } from "@/components/Footer/Footer";
-import classes from "./GraphiQl.module.scss";
+import classes from "./GraphiQlPage.module.scss";
 
-export function GraphiQl() {
+export function GraphiQlPage() {
   return (
     <div className={classes.graphiql}>
       <Header />

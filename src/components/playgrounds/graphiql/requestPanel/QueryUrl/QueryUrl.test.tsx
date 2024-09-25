@@ -1,4 +1,4 @@
-import { renderWithProviders } from "@/__tests__/setup/testStore";
+import { renderWithProviders } from "@/test/setup/testStore";
 import { QueryUrl } from "@/components/playgrounds/graphiql/requestPanel";
 import { fireEvent, screen } from "@testing-library/react";
 import { setUrl } from "@/store";

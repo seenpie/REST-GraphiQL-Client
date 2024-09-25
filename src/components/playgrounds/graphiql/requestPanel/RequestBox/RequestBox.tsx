@@ -2,7 +2,7 @@
 
 import { RequestEditor } from "@/components/playgrounds/graphiql/shared/codemirror";
 import { Button } from "@/components/playgrounds/graphiql/shared/Button/Button";
-import { useRequest } from "@/hooks/useRequest";
+import { useRequest } from "@/components/playgrounds/graphiql/requestPanel/RequestBox/RequestBox.hooks";
 import { HeadersTool } from "@/components/playgrounds/graphiql/requestPanel/HeadersTool/HeadersTool";
 import { VariablesTool } from "@/components/playgrounds/graphiql/requestPanel/VariablesTool/VariablesTool";
 import classes from "./RequestBox.module.scss";

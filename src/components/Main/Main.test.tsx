@@ -29,16 +29,4 @@ describe("Main", () => {
 
     expect(pushMock).toHaveBeenCalledWith("/graphiql");
   });
-
-  it("does not navigate when the RESTFull button is disabled", () => {
-    render(<Main />);
-
-    const restfullButton = screen.getByText("go RESTFull");
-
-    expect(restfullButton).toBeDisabled();
-
-    fireEvent.click(restfullButton);
-
-    expect(pushMock).not.toHaveBeenCalledWith("/restfull");
-  });
 });
