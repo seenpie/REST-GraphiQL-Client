@@ -1,0 +1,9 @@
+@import "@/assets/vars.css";
+@import "@/assets/reset.css";
+@import "normalize-css";
+
+body {
+  background: #fff;
+  min-height: 100vh;
+  height: 100%;
+}

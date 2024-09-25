@@ -1,0 +1,30 @@
+.graphiql {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px;
+}
+
+.editor {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  gap: 6px;
+}
+
+.playground {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  gap: 4px;
+}
+
+.wrapper {
+  display: flex;
+  flex: 1;
+  padding: 4px;
+  border: 1px solid #000;
+  border-radius: var(--main-border-radius);
+}

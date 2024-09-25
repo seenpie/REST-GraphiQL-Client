@@ -1,0 +1,34 @@
+@import "@/assets/mixins.scss";
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px;
+  border-radius: var(--main-border-radius);
+  backdrop-filter: blur(24px);
+  border: 1px solid #000;
+  background-color: rgb(252 252 252 / 40%);
+}
+
+.list {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  gap: 4px;
+}
+
+.item {
+  cursor: pointer;
+  align-content: center;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.button {
+  @include button;
+}

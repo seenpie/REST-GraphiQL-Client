@@ -1,0 +1,33 @@
+import { Suspense } from "react";
+import { RequestBox } from "@/components/playgrounds/graphiql/requestPanel";
+import { ResponseBox } from "@/components/playgrounds/graphiql/responsePanel";
+import { RequestSchemaBox } from "@/components/playgrounds/graphiql/requestPanel/RequestSchemaBox/RequestSchemaBox";
+import { Header } from "@/components/Header/Header";
+import { Footer } from "@/components/Footer/Footer";
+import classes from "./GraphiQlPage.module.scss";
+
+export function GraphiQlPage() {
+  return (
+    <div className={classes.graphiql}>
+      <Header />
+      <div className={classes.editor}>
+        <header>
+          <RequestSchemaBox />
+        </header>
+        <div className={classes.playground}>
+          <section className={classes.wrapper}>
+            <Suspense fallback={<span>loading</span>}>
+              <RequestBox />
+            </Suspense>
+          </section>
+          <section className={classes.wrapper}>
+            <Suspense fallback={<span>loading</span>}>
+              <ResponseBox />
+            </Suspense>
+          </section>
+        </div>
+      </div>
+      <Footer />
+    </div>
+  );
+}

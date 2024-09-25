@@ -1,0 +1,44 @@
+@import "../../app/globals.css";
+
+.page404 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    text-align: center;
+    font-size: 64px;
+    line-height: 80px;
+    margin-top: 40px;
+    font-weight: 700;
+    color: rgb(211 47 47);
+  }
+
+  &__text {
+    text-align: center;
+    font-size: 24px;
+    line-height: 48px;
+    margin-top: 40px;
+    font-weight: 700;
+    color: rgb(211 47 47);
+    margin-bottom: 40px;
+  }
+
+  &__button {
+    width: 300px;
+    font-size: 24px;
+    background-color: rgb(25 118 210 / 3%);
+    height: 100%;
+    padding: 10px 15px;
+    border: 1px solid rgb(25 118 210 / 50%);
+    border-radius: 30px;
+    cursor: pointer;
+    color: rgb(211 47 47);
+    line-height: 36px;
+
+    &:hover {
+      background-color: rgb(25 118 210 / 8%);
+      border: 1px solid rgb(25 118 210 / 59.2%);
+    }
+  }
+}

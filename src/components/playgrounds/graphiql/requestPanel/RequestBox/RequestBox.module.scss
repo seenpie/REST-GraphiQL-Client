@@ -1,0 +1,48 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  gap: 4px;
+}
+
+.requestHeaders {
+  border: 1px solid #000;
+  border-radius: var(--main-border-radius);
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.requestEditor {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 4px;
+  border: 1px solid #000;
+  border-radius: var(--main-border-radius);
+}
+
+.requestTool {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.requestVariables {
+  padding: 4px;
+  border: 1px solid #000;
+  border-radius: var(--main-border-radius);
+}
+
+.editor {
+  overflow: auto;
+  height: 100%;
+}
+
+.buttons {
+  display: flex;
+  gap: 4px;
+}
